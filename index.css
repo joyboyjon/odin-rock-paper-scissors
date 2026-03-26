@@ -1,0 +1,28 @@
+.btn-container{
+    display: flex;
+    height: 90px;
+    width:320px;
+    gap:10px
+}
+
+.btn{
+    border-radius: 5px;
+    border-style: solid black;
+    flex:1;
+}
+
+.info-container{
+    margin-top: 20px;
+    display: flex;
+    height: 90px;
+    width:320px;
+    gap:10px
+}
+.info{
+    flex:1;
+    border: 1px solid black;
+    border-radius: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
