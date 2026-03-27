@@ -92,3 +92,19 @@
     right: 10px;
 }
 
+
+.stickman-player{
+    position:absolute;
+    height: 240px;
+    width: 180px;
+    bottom: 30px;
+    left: 170px;
+}
+
+.stickman-enemy{
+   position:absolute;
+    height: 240px;
+    width: 180px; 
+    top:100px;
+    right:70px;
+}
