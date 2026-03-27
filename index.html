@@ -6,16 +6,22 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="btn-container">
-        <button class="btn" id="rock">Rock</button>
-        <button class="btn" id="paper">Paper</button>
-        <button class="btn" id="scissors">Scissors</button>
-    </div>
-
-    <div class="info-container">
-        <div class="info" id="humanChoice"></div>
-        <div class="info" id="score">0 - 0</div>
-        <div class="info" id="computerChoice"></div>
+    <div class="game-container">
+        <div class="btn-container">
+                <button class="btn" id="rock">Rock</button>
+                <button class="btn" id="paper">Paper</button>
+                <button class="btn" id="scissors">Scissors</button>
+        </div>
+        <div class="screen-wrapper">
+            <div class="screen-container">
+                <div class="diagonal-line"></div>
+            </div>
+            <div class="info-container">
+                    <div class="info" id="humanChoice"></div>
+                    <div class="info" id="score">0 - 0</div>
+                    <div class="info" id="computerChoice"></div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
