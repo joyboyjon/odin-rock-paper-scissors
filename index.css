@@ -37,6 +37,8 @@
     border: 3px solid black;
     box-sizing: border-box;
     overflow: hidden;
+    background-image: url("./images/wild-west-town.jpg");
+    background-size: cover;
 }
 
 .diagonal-line{
@@ -44,7 +46,7 @@
     top: 0;
     left: 0;
     width: 860px;
-    height: 3px;
+    height: 5px;
     background: black;
 
     transform: rotate(35.5deg);
@@ -65,3 +67,28 @@
     height: 620px;
     gap:30px;
 }
+
+.heart{
+    height: 40px;
+    width: 40px;
+}
+.heart-container-player{
+    display: flex;
+    gap:5px;
+    height: 40;
+    width: 220px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.heart-container-computer{
+    display: flex;
+    gap:5px;
+    height: 40;
+    width: 220px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
