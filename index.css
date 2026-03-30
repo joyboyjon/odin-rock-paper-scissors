@@ -54,11 +54,12 @@
 }
 
 .game-container{
-    width:820px;
+    width:842px;
     height: 620px;
     display: flex;
     gap:30px;
     margin-left: 30px;
+    position: relative;
 }
 
 .screen-wrapper{
@@ -107,4 +108,56 @@
     width: 180px; 
     top:100px;
     right:70px;
+}
+
+#rock{
+    background-image: url("./images/rock.png");
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#paper{
+    background-image: url("./images/paper.png");
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#scissors{
+    background-image: url("./images/scissors.png");
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.audio-container{
+    height: 36px;
+    width: 18px;
+    display: flex;
+    flex-direction: column;
+    gap:1px;
+    position: absolute;
+    bottom: 120px;
+    right: 0px;
+}
+
+.audio{
+    height: 18px;
+    width: 18px;
+}
+
+
+#music-btn{
+    background-image: url("./images/music-on.png");
+    background-size: 350%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#sound-btn{
+    background-image: url("./images/sound-on.png");
+    background-size: 350%;
+    background-position: center;
+    background-repeat: no-repeat;
 }

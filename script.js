@@ -6,6 +6,14 @@ const humanChoiceDisplay=document.getElementById("humanChoice");
 const computerChoiceDisplay=document.getElementById("computerChoice");
 const score=document.getElementById("score");
 
+const music= document.getElementById("bg-music");
+const toggleMusic=document.getElementById("music-btn");
+
+const playerHearts=document.querySelectorAll(".heart-container-player .heart");
+let playerHP=5;
+const computerHearts=document.querySelectorAll(".heart-container-computer .heart");
+let computerHP=5;
+
 humanScore=0;
 computerScore=0;
 gameOver=false;
@@ -21,8 +29,16 @@ function handleClick( humanChoice){
     if(gameOver) return;
     const computerChoice=getComputerChoice();
     const result=playRound(humanChoice,computerChoice);
-    if (result=="human") humanScore++
-    if(result=="computer") computerScore++;
+    if (result=="human") {
+        humanScore++;
+        computerHP--;
+        computerHearts[computerHP].src="./images/heart-empty.png";
+    }
+    if(result=="computer") {
+        computerScore++;
+        playerHP--;
+        playerHearts[playerHP].src="./images/heart-empty.png";
+    }
 
     humanChoiceDisplay.textContent=humanChoice;
     computerChoiceDisplay.textContent=computerChoice;
@@ -65,5 +81,18 @@ function endGame(){
     scissorsBtn.disable=true;
 }
 
+toggleMusic.addEventListener("click",()=>{
+    if(music.paused){
+        music.volume=0.7;
+        toggleMusic.style.backgroundImage='url("./images/music-on.png")';
+        music.play();
+    } else {
+        music.pause();
+        toggleMusic.style.backgroundImage='url("./images/music-off.png")';
+    }
+});
 
-
+document.addEventListener("click",()=>{
+    music.volume=0.7;
+    music.play();
+},{once:true});
