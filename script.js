@@ -18,6 +18,13 @@ let playerHP=5;
 const computerHearts=document.querySelectorAll(".heart-container-computer .heart");
 let computerHP=5;
 
+const stickmanEnemy=document.querySelector(".stickman-enemy");
+const stickmanPlayer=document.querySelector(".stickman-player");
+
+const endScreen=document.getElementById("end-screen");
+const endText=document.getElementById("end-text");
+const restartBtn=document.getElementById("restart-btn");
+
 humanScore=0;
 computerScore=0;
 gameOver=false;
@@ -52,8 +59,15 @@ function handleClick( humanChoice){
     computerChoiceDisplay.textContent=computerChoice;
     score.textContent=`${humanScore} - ${computerScore} `;
 
-    if(humanScore==5 || computerScore==5) endGame();
+    if(humanScore==5) {
+        stickmanEnemy.src="./images/enemy-dead.png";
+        endGame()
+    };
 
+    if(computerScore==5) {
+        stickmanPlayer.src="./images/player-dead.png";
+        endGame()
+    };
     
 }
 
@@ -80,9 +94,11 @@ else if((humanChoice=="scissors"&&computerChoice=="rock")||
 function endGame(){
     gameOver=true;
     if(humanScore==5){
-        alert("You won the game! :)");
+        endText.textContent="YOU WON! :)";
     }
-    else alert("You lost:(");
+    else endText.textContent="YOU LOST! :(";
+
+    endScreen.classList.remove("hidden");
 
     rockBtn.disable=true;
     paperBtn.disable=true;
@@ -113,3 +129,23 @@ document.addEventListener("click",()=>{
     music.volume=0.7;
     music.play();
 },{once:true});
+
+restartBtn.addEventListener("click",()=>{
+    humanScore=0;
+    computerScore=0;
+    playerHP=5;
+    computerHP=5;
+    gameOver=false;
+
+    score.textContent="0 - 0";
+    humanChoiceDisplay.textContent="";
+    computerChoiceDisplay.textContent="";
+
+    playerHearts.forEach(h=>h.src="./images/heart-full.png");
+    computerHearts.forEach(h => h.src = "./images/heart-full.png");
+
+    stickmanPlayer.src = "./images/player.png";
+    stickmanEnemy.src = "./images/enemy.png";
+
+    endScreen.classList.add("hidden");
+});
