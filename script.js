@@ -7,7 +7,11 @@ const computerChoiceDisplay=document.getElementById("computerChoice");
 const score=document.getElementById("score");
 
 const music= document.getElementById("bg-music");
-const toggleMusic=document.getElementById("music-btn");
+let toggleMusic=document.getElementById("music-btn");
+
+const gunshot=document.getElementById("gunshot-sound");
+let soundEnable=true;
+const toggleSound=document.getElementById("sound-btn");
 
 const playerHearts=document.querySelectorAll(".heart-container-player .heart");
 let playerHP=5;
@@ -27,6 +31,10 @@ function getComputerChoice(){
 
 function handleClick( humanChoice){
     if(gameOver) return;
+    if(soundEnable){
+        gunshot.currentTime=0;
+        gunshot.play();
+    }
     const computerChoice=getComputerChoice();
     const result=playRound(humanChoice,computerChoice);
     if (result=="human") {
@@ -91,6 +99,15 @@ toggleMusic.addEventListener("click",()=>{
         toggleMusic.style.backgroundImage='url("./images/music-off.png")';
     }
 });
+
+toggleSound.addEventListener("click",()=>{
+    soundEnable=!soundEnable;
+    if(soundEnable){
+        toggleSound.style.backgroundImage='url("./images/sound-on.png")';
+    }else{
+        toggleSound.style.backgroundImage='url("./images/sound-off.png")';
+    }
+})
 
 document.addEventListener("click",()=>{
     music.volume=0.7;
